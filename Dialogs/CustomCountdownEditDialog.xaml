@@ -1,0 +1,47 @@
+<Window x:Class="MoyuApp.Dialogs.CustomCountdownEditDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="编辑自定义倒计时" Height="250" Width="400"
+        WindowStartupLocation="CenterOwner"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+    
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <TextBlock Grid.Row="0" Text="编辑倒计时" FontSize="18" FontWeight="Bold" 
+                  Margin="0,0,0,20" Foreground="{DynamicResource PrimaryHueMidBrush}"/>
+        
+        <TextBox x:Name="NameTextBox" Grid.Row="1" 
+                materialDesign:TextFieldAssist.HasOutlinedTextField="True"
+                materialDesign:HintAssist.Hint="倒计时名称"
+                Margin="0,0,0,15"/>
+        
+        <DatePicker x:Name="DatePicker" Grid.Row="2"
+                   materialDesign:TextFieldAssist.HasOutlinedTextField="True"
+                   materialDesign:HintAssist.Hint="目标日期"
+                   Margin="0,0,0,15"/>
+        
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="CancelButton" Content="取消" 
+                   Style="{StaticResource MaterialDesignOutlinedButton}"
+                   Margin="0,0,10,0" Padding="15,8" Click="CancelButton_Click"/>
+            
+            <Button x:Name="SaveButton" Content="保存" 
+                   Style="{StaticResource MaterialDesignRaisedAccentButton}"
+                   Padding="15,8" Click="SaveButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

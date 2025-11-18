@@ -1,0 +1,65 @@
+<Window x:Class="MoyuApp.Dialogs.BackupRestoreDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="恢复备份" Height="400" Width="500"
+        WindowStartupLocation="CenterOwner"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+    
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <TextBlock Grid.Row="0" Text="选择要恢复的备份" FontSize="18" FontWeight="Bold" 
+                  Margin="0,0,0,20" Foreground="{DynamicResource PrimaryHueMidBrush}"/>
+        
+        <ListBox x:Name="BackupListBox" Grid.Row="1" 
+                materialDesign:ListBoxAssist.IsToggle="False"
+                ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                BorderThickness="1"
+                Background="Transparent">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <StackPanel Grid.Column="0">
+                            <TextBlock Text="{Binding Name}" FontWeight="SemiBold" FontSize="14"/>
+                            <TextBlock Text="{Binding Date, StringFormat='创建时间: {0:yyyy-MM-dd HH:mm}'}" 
+                                      Margin="0,2,0,0" Opacity="0.7" FontSize="12"/>
+                            <TextBlock Text="{Binding Size, StringFormat='文件大小: {0}'}" 
+                                      Margin="0,1,0,0" Opacity="0.6" FontSize="11"/>
+                        </StackPanel>
+                        
+                        <Button Grid.Column="1" Style="{StaticResource MaterialDesignFlatButton}"
+                               Content="删除" Tag="{Binding}"
+                               Click="DeleteBackupButton_Click"
+                               Foreground="{DynamicResource MaterialDesignValidationErrorBrush}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
+            <Button x:Name="CancelButton" Content="取消" 
+                   Style="{StaticResource MaterialDesignOutlinedButton}"
+                   Margin="0,0,10,0" Padding="15,8" Click="CancelButton_Click"/>
+            
+            <Button x:Name="RestoreButton" Content="恢复选中备份" 
+                   Style="{StaticResource MaterialDesignRaisedAccentButton}"
+                   Padding="15,8" Click="RestoreButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

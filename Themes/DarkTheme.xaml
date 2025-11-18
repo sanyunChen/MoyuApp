@@ -1,0 +1,109 @@
+<!-- 深色主题 -->
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <!-- 颜色定义 -->
+    <Color x:Key="PrimaryColor">#60D3FF</Color>
+    <Color x:Key="SecondaryColor">#FF7EB3</Color>
+    <Color x:Key="BackgroundColor">#0F1724</Color>
+    <Color x:Key="CardBackgroundColor">#141422</Color>
+    <Color x:Key="TextColor">#FFEAEEF5</Color>
+    <Color x:Key="MutedTextColor">#FFAAB5CC</Color>
+    
+    <!-- 画刷 -->
+    <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource PrimaryColor}"/>
+    <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource SecondaryColor}"/>
+    <LinearGradientBrush x:Key="BackgroundBrush" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="#FF0F1724" Offset="0"/>
+        <GradientStop Color="#FF1A2234" Offset="1"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="CardBackgroundBrush" Color="{StaticResource CardBackgroundColor}"/>
+    <SolidColorBrush x:Key="TextBrush" Color="{StaticResource TextColor}"/>
+    <SolidColorBrush x:Key="MutedTextBrush" Color="{StaticResource MutedTextColor}"/>
+    
+    <!-- 卡片样式 -->
+    <Style x:Key="MoyuCardStyle" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource CardBackgroundBrush}"/>
+        <Setter Property="CornerRadius" Value="14"/>
+        <Setter Property="Padding" Value="20"/>
+        <Setter Property="Margin" Value="8"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect ShadowDepth="6" Direction="270" BlurRadius="20" 
+                                 Color="#80000000" Opacity="0.5"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <!-- 按钮样式 -->
+    <Style x:Key="FloatingActionButtonStyle" TargetType="Button">
+        <Setter Property="Width" Value="60"/>
+        <Setter Property="Height" Value="60"/>
+        <Setter Property="Background" Value="{StaticResource PrimaryBrush}"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}"
+                           CornerRadius="30"
+                           Width="{TemplateBinding Width}"
+                           Height="{TemplateBinding Height}">
+                        <ContentPresenter HorizontalAlignment="Center" 
+                                        VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#4FC3F7"/>
+                <Setter Property="RenderTransform">
+                    <Setter.Value>
+                        <RotateTransform Angle="90"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
+    <!-- 进度条样式 -->
+    <Style x:Key="MoyuProgressBar" TargetType="ProgressBar">
+        <Setter Property="Height" Value="14"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Background" Value="#FF2A2A2A"/>
+        <Setter Property="Foreground" Value="{StaticResource PrimaryBrush}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ProgressBar">
+                    <Border Background="{TemplateBinding Background}"
+                           CornerRadius="7"
+                           Height="{TemplateBinding Height}">
+                        <Grid>
+                            <Rectangle x:Name="PART_Track" />
+                            <Rectangle x:Name="PART_Indicator" 
+                                     HorizontalAlignment="Left"
+                                     Fill="{TemplateBinding Foreground}"
+                                     RadiusX="7" RadiusY="7"/>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <!-- 退休进度条样式 -->
+    <Style x:Key="RetireProgressBar" TargetType="ProgressBar" 
+           BasedOn="{StaticResource MoyuProgressBar}">
+        <Setter Property="Foreground">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStop Color="{StaticResource SecondaryColor}" Offset="0"/>
+                    <GradientStop Color="{StaticResource PrimaryColor}" Offset="1"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+</ResourceDictionary>

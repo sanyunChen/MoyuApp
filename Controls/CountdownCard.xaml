@@ -1,0 +1,26 @@
+<UserControl x:Class="MoyuApp.Controls.CountdownCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+    
+    <materialDesign:Card Padding="20" Margin="8" 
+                        UniformCornerRadius="14">
+        <StackPanel>
+            <TextBlock x:Name="TitleText" FontSize="18" FontWeight="Bold" 
+                      Margin="0,0,0,12" Foreground="{DynamicResource PrimaryHueMidBrush}"/>
+            <TextBlock x:Name="CountdownTextBlock" FontSize="16" Margin="0,10,0,0"
+                      MouseLeftButtonDown="CountdownText_MouseLeftButtonDown"
+                      Cursor="Hand" TextTrimming="CharacterEllipsis">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#10FF4081"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </StackPanel>
+    </materialDesign:Card>
+</UserControl>

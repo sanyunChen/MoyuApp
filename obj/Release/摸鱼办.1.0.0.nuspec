@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>摸鱼办</id>
+    <version>1.0.0</version>
+    <authors>摸鱼办</authors>
+    <description>Package Description</description>
+    <repository type="git" />
+    <dependencies>
+      <group targetFramework="net8.0-windows7.0">
+        <dependency id="MaterialDesignColors" version="3.1.0" exclude="Build,Analyzers" />
+        <dependency id="MaterialDesignThemes" version="5.1.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.DependencyInjection" version="8.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Hosting" version="8.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.VisualBasic" version="10.3.0" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="13.0.3" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net8.0-windows7.0">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WPF" />
+      </group>
+    </frameworkReferences>
+    <contentFiles>
+      <files include="any/net8.0-windows7.0/Fish_Food_icon-icons.com_68747.ico" buildAction="Content" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="E:\project\fishing-office\MoyuApp\bin\Release\net8.0-windows\摸鱼办.runtimeconfig.json" target="lib\net8.0-windows7.0\摸鱼办.runtimeconfig.json" />
+    <file src="E:\project\fishing-office\MoyuApp\bin\Release\net8.0-windows\摸鱼办.dll" target="lib\net8.0-windows7.0\摸鱼办.dll" />
+    <file src="E:\project\fishing-office\MoyuApp\Fish_Food_icon-icons.com_68747.ico" target="content\Fish_Food_icon-icons.com_68747.ico" />
+    <file src="E:\project\fishing-office\MoyuApp\Fish_Food_icon-icons.com_68747.ico" target="contentFiles\any\net8.0-windows7.0\Fish_Food_icon-icons.com_68747.ico" />
+  </files>
+</package>
