@@ -160,3 +160,8 @@
 - **开源社区**: 感谢.NET开源社区的支持
 
 ---
+
+## **项目截图**
+<img width="690" height="404" alt="image" src="projectScreenshot/1.png" />
+
+<img width="690" height="404" alt="image" src="projectScreenshot/2.png" />
